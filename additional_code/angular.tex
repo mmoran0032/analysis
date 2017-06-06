@@ -1,0 +1,319 @@
+\documentclass[10pt]{amsart}
+
+\usepackage{gensymb}
+\usepackage{listings}
+
+\numberwithin{equation}{subsection}
+
+\newcommand{\nuc}[2]{${}^{#1}\textrm{#2}$}
+\newcommand{\mnuc}[2]{{}^{#1}\textrm{#2}}
+\newcommand{\react}[4]{$#1(#2,#3)#4$}
+\newcommand{\mreact}[4]{#1(#2,#3)#4}
+\newcommand{\alpa}{\react{\mnuc{27}{Al}}{\textrm{p}}{\alpha}{\mnuc{24}{Mg}}}
+
+\title{Angular Correlations}
+\author{Mike Moran}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+If we have an initial state with particles $a$ and $A$ with a channel spin of
+$(j^{\pi})_1$, and the lighter particle $a$ has an orbital angular momentum of
+$\ell_a$, that creates a state $J^{\pi}$ in a compound nucleus $C$ that then
+decays into a second two-body system with particles $b$ and $B$, where the new
+channel spin in $(j^{\pi})_2$ and the lighter particle $b$ has an orbital
+angular momentum $\ell_b$, we can determine the angular correlation between the
+two light particles $a$ and $b$ in the center of mass frame.
+
+To do this, we need to first look at the coupling between the various quantum
+states involved to see what possible quantum values there are for the orbital
+angular momenta. Note that, in most cases, only the two lowest values of
+$\ell_i$ are necessary, since higher values are drastically less likely to have
+an impact on the reaction. Following that, we can determine the contributions
+to the angular correlation arising from the mixed states (if they are present)
+and relate that to our differential cross section.
+
+For the remainder of this discussion, I will be using the \alpa{} reaction and
+looking at two states identified in Andersen~\textit{et al.},~1961: the
+isotropic $E_p = 1182$~keV state with $J^{\pi} = 2^+$, and the non-isotropic
+$E_p = 1315$~keV state with $J^{\pi} = 4^+$. The first of these states was
+measured during the February 2017 experiment, and the second state would not be
+reasonably detectable at $0\degree$.
+
+
+\section{Quantum Number Selection}
+
+Our quantum numbers are defined by the properties of the entrance and exit
+channels and the state within the compount nucleus we are trying to populate.
+We will approach these numbers by looking at them moving from the entrance
+channel to the compound nucleus to the exit channel. We are assuming here that
+all particles involved are nuclear particles and that there are no intervening
+$\gamma$s to consider.
+
+\subsection{Entrance Channel}
+
+The entrance channel has a spin-parity of $(j^{\pi})_1$, determined by the spin
+and parity of the two separate particles. The channel spin is determined by
+\[
+    |j_a - j_A| \leq j_1 \leq j_a + j_A,
+\]
+and the channel parity is determined by
+\[
+    \pi_1 = \pi_a\pi_A(-1)^{\ell_a}.
+\]
+These equations also hold for the exit channel, after making the replacements
+$1\rightarrow2$, $a\rightarrow b$, and $A\rightarrow B$. The value of the
+relative angular momentum, taken here to the orbital angular momentum of just
+the smaller particle, will be constrained by the compound nuclear state, but
+for now it can be considered a free parameter.
+
+For our reaction, the proton has $J^{\pi} = 1/2^+$ and \nuc{27}{Al} has
+$J^{\pi} = 5/2^+$, leading to two possible channel spins:
+$j_1 = 2$ or 3. Again, the parity cannot be determined, since we have not
+defined our orbital angular momentum.
+
+
+\subsection{Compound Nucleus}
+
+Within our compound nucleus, we select a single state with spin-parity
+$J^{\pi}$ to populate. The energy kinematics would determine what that level's
+excitation energy is and thus what the required beam energy would be to
+populate the state, but that is not discussed here. Now that we know our
+intermediate state's properties, we can determine the final possible values
+for our entrance channel.
+
+First, the entrance channel's $\ell_a$ can be set by following the triangular
+rule
+\[
+    |J - j_1| \leq \ell_a \leq J + j_1.
+\]
+Since we also have the parity of our composite state, we can determine whether
+our $\ell_a$ values will be odd or even, since
+\[
+    \pi = \pi_a\pi_A(-1)^{\ell_a},
+\]
+leading to the chain of possible values as $\ell, \ell + 2, \dotsb, \ell + n$.
+As mentioned previous, we usually only have to worry about the two lowest
+angular momenta, $\ell$ and $\ell + 2$, but in reality all would be considered.
+Again, these equations also hold for the exit channel, after making the same
+replacements as before.
+
+For our example, the results of figuring out these possibilities are summarized
+in below. Note that all $\ell_{\textrm{p}}$ values are even, since our entrance
+channel and compound nuclear state parities are even.
+
+\begin{description}
+    \item[$J^{\pi} = 2^+$]
+        $j_1 = 2 \rightarrow \ell_{\textrm{p}} = 0\textrm{, }2\textrm{, and }4$,
+        $j_1 = 3 \rightarrow \ell_{\textrm{p}} = 2\textrm{ and }4$
+    \item[$J^{\pi} = 4^+$]
+        $j_1 = 2 \rightarrow \ell_{\textrm{p}} = 2\textrm{, }4\textrm{, and }6$,
+        $j_1 = 3 \rightarrow \ell_{\textrm{p}} = 2\textrm{, }4\textrm{, and }6$
+\end{description}
+
+
+\subsection{Exit Channel}
+
+Our exit channel properties are determined the same way as our exit channel:
+finding the allowed $j_2$ based on the exit channel's two particles,
+determining the allowed $\ell_b$ values by looking at the triangle rule, and
+selecting states were the parities of the compound nuclear state and the exit
+channel are the same. From here, we have assigned all possible quantum numbers
+describing our reaction.
+
+Our exit channel consists of our $\alpha$ particle and \nuc{24}{Mg} in its
+ground state, both of which are $J^{\pi} = 0^+$. If we were instead looking at
+the $\alpha_1$ channel, populating the first excited state in \nuc{24}{Mg}, we
+would use the spin-parity ($2^+$) of that state and would need to handle the
+outgoing $\gamma$ accordingly. In our case, our exit channel can only be
+$(j^{\pi})_2 = 0^+$, which simplifies things greatly, by only allowing our
+$\alpha$ particle to have $\ell_{\alpha} = 2$ (for our $2^+$ state) or
+$\ell_{\alpha} = 4$ (for our $4^+$ state).
+
+
+\subsection{Final Description}
+
+To condense our qunatum number representation down, I will introduce the
+following notation describing the sequence of angular momenta:
+\[
+    j_1(L_1)J(L_2)j_2,
+\]
+where we can make the substitution $L_i = \ell_{a|b}$ since we are assuming that
+all of the orbital angular momentum is contained within the smaller particle
+within each channel. For our two example resonances, we can write our allowed
+quantum number sequences as
+\[
+    2\binom{0}{2}2(2)0\textrm{ and }3\binom{2}{4}2(2)0
+\]
+for our $J^{\pi} = 2^+$ resonance (note that we have limited ourselves to just
+the two lowest $\ell_{\textrm{p}}$ numbers), and
+\[
+    2\binom{2}{4}4(4)0\textrm{ and }3\binom{2}{4}4(4)0
+\]
+for our $J^{\pi} = 4^+$ resonance. Now that we have our allowed quantum
+numbers, we can move on to actually calculating the angular distributions.
+
+
+\section{Angular Correlation}
+
+The angular correlation between two detected particles, one incoming and one
+outgoing, can be expressed as a sum of Legendre polynomials over the angle
+between the two particles, given by
+\begin{equation}
+    \label{eq:angcorr}
+    W(\theta) = \frac{1}{b_0}\sum_{n=0}^{n_{\textrm{max}}} b_nP_n(\cos\theta),
+\end{equation}
+where $P_n(x)$ are the Legendre polynomials. Due to symmetry concerns, we only
+have to worry about even-$n$ terms within the sum, which reduces this down to
+fewer terms. The upper limit $n_{\textrm{max}}$ is based on the specific values
+of the various angular momenta involved, and the coefficients $b_n$ will be
+discussed later. This distribution can be related to the differential and total
+cross section through
+\[
+    \left(\frac{d\sigma}{d\Omega}\right)_{\theta} =
+        \frac{1}{4\pi}\sigma W(\theta).
+\]
+If we have an isotopic angular distribution, which is the current status for
+our two resonances, we must have $W(\theta) = 1$.
+
+The coefficients $b_n$ are also based on the angular momentum states involved,
+which include terms describing the vector coupling between the various states.
+We will use the coefficients $F_n$ defined in Biedenharn, 1960:
+\[
+    F_n(LL'jJ) = (-1)^{j - J - 1}\sqrt{(2L + 1)(2L' + 1)(2J + 1)}
+        \langle L1L'{-1}|n0\rangle W(JJLL';nj),
+\]
+where $\langle L_1m_1L_2m_2|JM\rangle$ are Clebsch-Gordan coefficients, and
+$W(j_1j_2j_3j_4;j_5j_6)$ are Racah coefficients. These coefficients can either
+be found in a tabulated resource or calculated. For our expansion coefficients
+$b_n$, we'll have an $F_n$ for the entrance and exit channels.
+
+Since our entrance channel has two possible spin states, we will have to
+consider the mixing between those two states. The total angular correlation,
+taking that mixing into account, is given by
+\[
+    W(\theta) = W_{j_s}(\theta) + \delta_c^2W_{j_s'}(\theta),
+\]
+where $\delta_c^2 = P_{j_s'} / P_{j_s}$ is the channel spin mixing ratio,
+defined as the ratio between the probabilities for forming or decaying from the
+intermediate state through the two spins. To note, we take $j_s' > j_s$, which
+is the standard convention.
+
+At this point, we have all of our scaffolding in place, so we just need to
+bring all of the pieces together. Since our entrance channel can form the
+compound state through two different orbital angular momenta $\ell_1$, we also
+need to consider coherent interference between those two possibilities.
+
+For a simple two-step process, our expansion coefficients are given by
+\[
+    b_n = a_n(1)A_n(1)a_n(2)A_n(2),
+\]
+where the factors $a_n(i)$ and $A_n(i)$ are determined by the angular momentum
+of the entrance and exit channels. In our case, our entrance channel has
+coherent interference between the various orbital angular momentum
+possibilities, while our exit channel progresses through pure radiation. I will
+discuss the simpler case first.
+
+
+\subsection{Pure Radiation}
+
+In a pure radiation, where only a single orbital angular momentum takes part,
+there are no alterations to the coefficients, and they are only determined by
+the properties of the particles involved. For $s = 0$ particles, which includes
+our $\alpha$ particle, the coefficients are
+\[
+    a_n(i) = \frac{2L_i(L_i + 1)}{2L_i(L_i + 1) - n(n + 1)}
+\]
+and
+\[
+    A_n(i) = F_n(L_ij_iJ) = F_n(L_iL_ij_iJ).
+\]
+If we had $s \neq 0$ particles, we would need to use the possible channel spin
+quantum numbers instead of just the initial state spin, something that we have
+already taken into account. The sum over the Legendre polynomials given in
+(\ref{eq:angcorr}) is restricted to $0 \leq n \leq \min(2L_1, 2L_2, 2J)$.
+
+
+\subsection{Mixed Radiation}
+
+For a channel where multiple orbital angular momenta take part in the formation
+or decay from a composite state, we have an orbital angular momentum mixing
+ratio $\delta_i^2 = \Gamma_{\ell_1} / \Gamma_{\ell_2}$, where $\Gamma_{\ell}$
+being the particle partial width for a given orbital angular momentum. For
+these channels, the coefficients $a_n(i)A_n(i)$ are replaced with
+\[
+    a_n(L_iL_i)F_n(L_ij_iJ) + 2\delta_ia_n(L_iL_i')F_n(L_iL_i'j_iJ) +
+        \delta_i^2a_n(L_i'L_i')F_n(L_i'j_iJ),
+\]
+where we are assuming that $L_i' > L_i$ and, as mentioned before, we use the
+channel spin $j_i$ instead of the state spin.
+
+The values of $a_n(i)$ are also changed to represent the mixing between the
+orbital angular momenta. Instead of the definition used previously, we use
+\begin{align*}
+    a_n(L_iL_i') &= \cos(\zeta_{L_i} - \zeta_{L_i'})
+        \frac{\langle L_i0L_i'0|n0\rangle}{\langle L_i1L_i'{-1}|n0\rangle} \\
+    &= \cos(\zeta_{L_i} - \zeta_{L_i'})
+        \frac{2\sqrt{L_iL_i'(L_i + 1)(L_i' + 1)}}
+        {L_i(L_i + 1) + L_i'(L_i' + 1) - n(n + 1)}.
+\end{align*}
+The charge particle phase shifts $\zeta_L$ are given by
+\[
+    \zeta_L = {-\arctan}\left(\frac{F_L}{G_L}\right) +
+        \sum_{n = 1}^L\arctan\left(\frac{\eta}{n}\right),
+\]
+where $F_L$ and $G_L$ are the regular and irregular Coulomb wave functions,
+respectively, and $\eta = Z_{a|b}Z_{A|B}e^2/(\hbar v)$ is the Sommerfeld
+parameter. The Coulomb wave functions can either be found in a tabulation or
+calculated using a program.
+
+
+\subsection{Combining Everything}
+
+Since the full equation for our reaction, combining all of the above pieces,
+would easily fill a half page and not be any more intelligible than the above
+breakdown, I will not lay out the entire thing here. Instead, I will describe
+how the various pieces fit together.
+
+Looking at both resonances, our \alpa{} reaction consists of an entrance
+channel that exhibits mixing between orbital angular momentum states and
+between channel spin states, and an exit channel that progresses through a
+single pure radiation channel. We can write out each part by hand if we
+desired, but since there are a large number of coefficients that we would need
+to calculate anyway, it is easier to do the entire calculation through code.
+
+Since the Coulomb wave functions are radius-dependent, we can also leave the
+$\cos(\zeta_{L_i} - \zeta_{L_i'})$ term unevaluated. In addition, since higher
+orbital angular momentum terms decrease the penetration factor for the
+reaction, we could even simplify the orbital angular momentum mixing to not be
+included, meaning that the angular correlation would, in our case, just be
+based on the two different entrance channel spin states.
+
+
+\section{Code}
+
+Since we need to calculate the various coefficients in order to determine if
+there is an angular correlation between the particles, and to see if fitted
+experimental data matches up with the theory, we will use a short piece of code
+to perform those calculations. The code below is written in \texttt{python}. In
+addition, a separate package \verb+angular+ was written, making use of
+additional mathematical packages: \verb+mpmath+, \verb+numpy+, and
+\verb+sympy+, to perform all of the required coefficient calculations.
+
+The code in place gives the coefficients present for each Legendre polynomial,
+as further expansion can be handled by the end user. In addition, the
+coefficients being displayed separately allow for an easier relation to
+previous experimental results.
+
+\vspace{1.5em}
+\begin{lstlisting}[language=Python]
+import angular
+
+# check against Iliadis - should give [1, 2]
+coeff = angular.angular_correlation(0, 1, 1, 1, 0)
+print(coeff)
+\end{lstlisting}
+
+
+\end{document}
